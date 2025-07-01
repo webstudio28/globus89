@@ -1,0 +1,79 @@
+---
+layout: base.njk
+title: Услуги - Глобус 89
+description: Професионални услуги за полагане на подови замазки в Пловдив - машинно полагане, подово отопление, открити площи и много повече.
+permalink: uslugi.html
+---
+
+<!-- Services Grid Section -->
+<section class="section-padding ">
+  <div class="container-custom">
+    <div class="text-center mb-12">
+      <h1 class="text-3xl md:text-4xl font-bold text-globus-black mb-4">Нашите Услуги</h1>
+      <p class="text-lg text-globus-black/70 max-w-2xl mx-auto">От машинно полагане до специализирани решения - предлагаме пълна гама от услуги за вашия проект</p>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {% for service in services %}
+      <div class="bg-white rounded-[20px] shadow-lg overflow-hidden border border-globus-light-gray hover:shadow-xl transition-all duration-300 group">
+        <!-- Service Image -->
+        <div class="relative h-48 overflow-hidden">
+          <img 
+            src="{{ service.image | url }}" 
+            alt="{{ service.title }}"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+          >
+          <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+        </div>
+        
+        <!-- Service Content -->
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-globus-black mb-3 group-hover:text-globus-red transition-colors duration-300">
+            {{ service.title }}
+          </h3>
+          <p class="text-globus-black/70 mb-4 line-clamp-3">
+            {{ service.description }}
+          </p>
+          
+          <!-- Benefits Preview -->
+          <div class="mb-6">
+            <h4 class="text-sm font-semibold text-globus-black mb-2">Основни предимства:</h4>
+            <ul class="space-y-1">
+              {% if service.benefits %}
+                {% for benefit in service.benefits %}
+                <li class="text-sm text-globus-black/60 flex items-start">
+                  <svg class="w-4 h-4 text-gray-600 mt-0.5 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                  </svg>
+                  {{ benefit }}
+                </li>
+                {% endfor %}
+              {% endif %}
+            </ul>
+          </div>
+          
+          <!-- CTA Button -->
+          <a 
+            href="{{ pathPrefix }}uslugi/{{ service.slug }}" 
+            class="inline-flex items-center justify-center w-full bg-globus-red text-white font-semibold py-3 px-6 rounded-[10px] hover:bg-red-700 transition-colors duration-300 group-hover:shadow-lg"
+          >
+            Детайли
+            <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<style>
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+</style> 

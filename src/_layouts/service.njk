@@ -1,0 +1,244 @@
+---
+layout: base.njk
+---
+
+<!-- Hero Section -->
+<section class="relative w-full min-h-[70vh] flex items-start overflow-hidden py-10">
+  <!-- Fullscreen background image -->
+  <img src="{{ service.image | url }}" alt="{{ service.title }}" class="absolute inset-0 w-full h-full object-cover z-0"/>
+  <!-- Dark overlay -->
+  <div class="absolute inset-0 bg-globus-black/70 z-10"></div>
+  
+  <!-- Content -->
+  <div class="container-custom my-auto h-full w-full relative z-20 flex flex-col items-start justify-center md:items-start">
+    <!-- Breadcrumb -->
+    <nav class="text-white/80 mb-6">
+      <a href="{{ '/' | url }}" class="hover:text-globus-red transition-colors">Начало</a>
+      <span class="mx-2">></span>
+      <a href="{{ '/uslugi.html' | url }}" class="hover:text-globus-red transition-colors">Услуги</a>
+      <span class="mx-2">></span>
+      <span class="text-white">{{ service.title }}</span>
+    </nav>
+    
+    <h1 class="w-full md:w-[80%] md:min-w-[600px] text-3xl md:text-5xl font-bold text-white mb-4 relative">
+      {{ service.seoTitle }}
+      <span class="block w-full md:w-96 h-1 bg-globus-red rounded-full mt-2"></span>
+    </h1>
+    <p class="text-lg md:text-xl text-white/90 mb-8 max-w-2xl">
+      {{ service.intro }}
+    </p>
+
+  </div>
+</section>
+
+
+<!-- SEO Content Section -->
+{% if service.seoText %}
+<section class="container-custom px-2 pt-8 md:px-8 md:pt-32">
+  <div class="text-center mb-12 ">
+    <h2 class="text-3xl md:text-4xl font-bold text-globus-black mb-4">За услугата</h2>
+    <p class="text-lg text-gray-600 mt-2">Допълнителна информация</p>
+    <div class="mx-auto w-24 h-1 bg-globus-red rounded-full mt-4"></div>
+  </div>
+  
+  <div class=" mx-auto w-full">
+    <div class="bg-white rounded-[18px] p-8 border border-gray-200/80 shadow-sm">
+      <div class="prose prose-lg max-w-none text-globus-black/80">
+        {{ service.seoText | safe }}
+      </div>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<!-- Benefits Section -->
+{% if service.benefits and service.benefits.length > 0 %}
+<section class="container-custom px-2 pt-8 md:px-8 md:pt-32">
+  <div class="text-center mb-12">
+    <h2 class="text-3xl md:text-4xl font-bold text-globus-black mb-4">Предимства на услугата</h2>
+    <p class="text-lg text-gray-600 mt-2">Защо да изберете нашата услуга</p>
+    <div class="mx-auto w-24 h-1 bg-globus-red rounded-full mt-4"></div>
+  </div>
+  
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+    {% for benefit in service.benefits %}
+      <div class="bg-white p-6 rounded-[18px] border border-gray-200/80 text-center hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+        <div class="flex justify-center items-center mb-4">
+          <svg class="w-12 h-12 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+        </div>
+        <h3 class="font-bold text-xl text-globus-black mb-2">{{ benefit }}</h3>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
+<!-- Process Steps Section -->
+<section class="container-custom px-2 pt-8 md:px-8 md:pt-32">
+  <div class="text-center mb-12">
+    <h2 class="text-3xl md:text-4xl font-bold text-globus-black mb-4">Как работим</h2>
+    <p class="text-lg text-gray-600 mt-2">Нашият процес на работа</p>
+    <div class="mx-auto w-24 h-1 bg-globus-red rounded-full mt-4"></div>
+  </div>
+  
+  <div class="w-full">
+    <div class="relative">
+      <!-- Timeline line -->
+      <div class="hidden md:block absolute left-1/2 transform -translate-x-px top-0 bottom-0 w-0.5 bg-gradient-to-b from-globus-red via-globus-red to-gray-300"></div>
+      
+      {% for step in service.steps %}
+        <div class="relative mb-12 md:mb-16 last:mb-0">
+          <!-- Step container -->
+          <div class="flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-8">
+            <!-- Step content -->
+            <div class="flex-1 bg-white p-6 md:p-8 rounded-[20px] border border-gray-200/80 shadow-sm hover:shadow-lg transition-all duration-300 relative w-full">
+              <!-- Arrow for desktop -->
+              <div class="hidden md:block absolute left-0 top-1/2 transform -translate-x-full -translate-y-1/2 w-0 h-0 border-t-8 border-b-8 border-r-8 border-transparent border-r-white"></div>
+              
+              <div class="flex items-start gap-4">
+                <!-- Step icon -->
+                <div class="flex-shrink-0 w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center">
+                  {% if loop.index == 1 %}
+                    <svg class="w-6 h-6 text-globus-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                  {% elif loop.index == 2 %}
+                    <svg class="w-6 h-6 text-globus-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
+                    </svg>
+                  {% elif loop.index == 3 %}
+                    <svg class="w-6 h-6 text-globus-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                    </svg>
+                  {% elif loop.index == 4 %}
+                    <svg class="w-6 h-6 text-globus-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                  {% else %}
+                    <svg class="w-6 h-6 text-globus-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                    </svg>
+                  {% endif %}
+                </div>
+                
+                <!-- Step text -->
+                <div class="flex-1">
+                  <h3 class="font-semibold text-lg text-globus-black mb-2">Стъпка {{ loop.index }}</h3>
+                  <p class="text-globus-black/80 leading-relaxed">{{ step }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Arrow for mobile -->
+          {% if not loop.last %}
+            <div class="md:hidden flex justify-center mt-4">
+              <svg class="w-6 h-6 text-globus-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+              </svg>
+            </div>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- Technical Details Section -->
+{% if service.details %}
+<section class="container-custom px-2 pt-8 md:px-8 md:pt-32">
+  <div class="text-center mb-12">
+    <h2 class="text-3xl md:text-4xl font-bold text-globus-black mb-4">Технически характеристики</h2>
+    <p class="text-lg text-gray-600 mt-2">Детайли за услугата</p>
+    <div class="mx-auto w-24 h-1 bg-globus-red rounded-full mt-4"></div>
+  </div>
+  
+  <div class="w-full">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {% for key, value in service.details %}
+        <div class="bg-white p-6 rounded-[18px] border border-gray-200/80 shadow-sm">
+          <h3 class="font-semibold text-globus-black mb-3 capitalize text-lg">{{ key }}</h3>
+          {% if value is string %}
+            <p class="text-globus-black/80">{{ value }}</p>
+          {% else %}
+            <ul class="space-y-2">
+              {% for item in value %}
+                <li class="text-globus-black/80 flex items-center">
+                  <span class="text-globus-red mr-2">•</span>
+                  {{ item }}
+                </li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<!-- FAQ Section -->
+{% if service.faq and service.faq.length > 0 %}
+<section class="container-custom px-2 pt-8 md:px-8 md:pt-32">
+  <div class="text-center mb-12">
+    <h2 class="text-3xl md:text-4xl font-bold text-globus-black mb-4">Често задавани въпроси</h2>
+    <p class="text-lg text-gray-600 mt-2">Отговори на най-често задаваните въпроси</p>
+    <div class="mx-auto w-24 h-1 bg-globus-red rounded-full mt-4"></div>
+  </div>
+  
+  <div class="w-full">
+    {% for faq in service.faq %}
+      <div class="bg-white rounded-[18px] border border-gray-200/80 mb-4 overflow-hidden shadow-sm">
+        <button class="faq-toggle w-full p-6 text-left flex justify-between items-center hover:bg-gray-50 transition-colors">
+          <h3 class="font-semibold text-globus-black">{{ faq.question }}</h3>
+          <i class="fas fa-chevron-down text-globus-red transition-transform"></i>
+        </button>
+        <div class="faq-content hidden p-6 pt-0 border-t border-gray-200/80">
+          <p class="text-globus-black/80">{{ faq.answer }}</p>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
+
+
+<!-- Call to Action Section -->
+<section id="contact" class="container-custom px-2 pt-8 md:px-8 md:pt-32">
+  <div class="bg-globus-black text-white rounded-[24px] shadow-xl text-center py-16 px-6">
+    <h2 class="text-3xl md:text-4xl font-bold mb-4">Готови ли сте да започнем?</h2>
+    <p class="text-lg text-gray-300 max-w-2xl mx-auto mb-8">
+      Доверете се на екипа на Глобус 89 за {{ service.title | lower }}. Гарантираме качество, професионализъм и коректност.
+    </p>
+    
+    
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+      <a href="tel:+359893872181" class="btn-primary text-lg w-full sm:w-auto">
+        📞 Обадете ни се
+      </a>
+    </div>
+  </div>
+</section>
+
+<script>
+// FAQ Toggle Functionality
+document.addEventListener('DOMContentLoaded', function() {
+  const faqToggles = document.querySelectorAll('.faq-toggle');
+  
+  faqToggles.forEach(toggle => {
+    toggle.addEventListener('click', function() {
+      const content = this.nextElementSibling;
+      const icon = this.querySelector('i');
+      
+      // Toggle content
+      content.classList.toggle('hidden');
+      
+      // Rotate icon
+      icon.style.transform = content.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
+    });
+  });
+});
+</script> 

@@ -1,0 +1,175 @@
+---
+layout: base.njk
+title: Проекти | Глобус 89 - Машинно полагане на подови замазки
+permalink: proekti.html
+---
+
+<!-- Projects Page -->
+<section class="container-custom px-2 pt-8 md:px-8 md:pt-32">
+  <div class="text-center mb-12">
+    <h1 class="text-3xl md:text-4xl font-bold text-globus-black mb-4">Разгледайте нашата работа</h1>
+    <p class="text-lg text-gray-600 mt-2">Вижте примери от нашите успешно изпълнени проекти</p>
+    <div class="mx-auto w-24 h-1 bg-globus-red rounded-full mt-4"></div>
+  </div>
+  
+  <!-- Projects Grid -->
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    {% for project in projects %}
+    <div class="bg-white rounded-[18px] border border-gray-200/80 shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden">
+      <!-- Project Image with Hover Effect -->
+      <div class="overflow-hidden relative group cursor-pointer" onclick="openGallery({{ project.id }})">
+        <img 
+          src="{{ global.pathPrefix }}{{ project.images[0] }}" 
+          alt="{{ project.service }} - {{ project.location }}"
+          class="w-full h-64 object-cover transition-all duration-300 group-hover:scale-105"
+        >
+        <!-- Hover Overlay -->
+        <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-70 transition-all duration-300 flex items-center justify-center">
+          <span class="text-white font-semibold text-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            Виж всички снимки
+          </span>
+        </div>
+        <!-- Mobile Text (always visible on mobile) -->
+        <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-3 md:hidden">
+          <span class="text-sm font-medium">Разгледай всички снимки</span>
+        </div>
+      </div>
+      
+      <!-- Project Info -->
+      <div class="p-6">
+        <div class="flex items-center justify-between mb-3">
+          <span class="text-sm text-globus-red font-semibold">{{ project.projectType }}</span>
+          <span class="text-sm text-gray-500">{{ project.location }}</span>
+        </div>
+        
+        <h3 class="font-semibold text-globus-black mb-2">{{ project.service }}</h3>
+        <p class="text-gray-600 text-sm leading-relaxed">{{ project.description }}</p>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<!-- Gallery Modal -->
+<div id="gallery-modal" class="fixed inset-0 bg-black bg-opacity-95 z-50 hidden">
+  <div class="relative w-full h-full flex items-center justify-center">
+    <!-- Close Button -->
+    <button 
+      onclick="closeGallery()" 
+      class="absolute top-4 right-4 z-10 text-white hover:text-gray-300 transition-colors"
+    >
+      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </button>
+    
+    <!-- Navigation Buttons -->
+    <button 
+      onclick="previousImage()" 
+      class="absolute left-4 top-1/2 transform -translate-y-1/2 text-white hover:text-gray-300 transition-colors z-10"
+    >
+      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+      </svg>
+    </button>
+    
+    <button 
+      onclick="nextImage()" 
+      class="absolute right-4 top-1/2 transform -translate-y-1/2 text-white hover:text-gray-300 transition-colors z-10"
+    >
+      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+      </svg>
+    </button>
+    
+    <!-- Image Container -->
+    <div class="relative w-full h-full flex items-center justify-center p-4">
+      <img 
+        id="modal-image" 
+        src="" 
+        alt="Машинно полагане на подови замазки Гобус89"
+        class="max-w-full max-h-full object-contain"
+      >
+    </div>
+    
+    <!-- Image Counter -->
+    <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white text-sm">
+      <span id="image-counter">1 / 1</span>
+    </div>
+  </div>
+</div>
+
+<script>
+  let currentProject = null;
+  let currentImageIndex = 0;
+  let currentImages = [];
+  
+  const projects = {{ projects | dump | safe }};
+  
+  function openGallery(projectId) {
+    const project = projects.find(p => p.id === projectId);
+    if (!project) return;
+    
+    currentProject = project;
+    currentImages = project.images;
+    currentImageIndex = 0;
+    
+    updateModalImage();
+    document.getElementById('gallery-modal').classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  }
+  
+  function closeGallery() {
+    document.getElementById('gallery-modal').classList.add('hidden');
+    document.body.style.overflow = 'auto';
+    currentProject = null;
+    currentImageIndex = 0;
+    currentImages = [];
+  }
+  
+  function updateModalImage() {
+    if (!currentProject || currentImages.length === 0) return;
+    
+    const imagePath = currentImages[currentImageIndex];
+    const fullPath = '{{ global.pathPrefix }}' + imagePath.substring(1); // Remove leading slash
+    
+    document.getElementById('modal-image').src = fullPath;
+    document.getElementById('image-counter').textContent = `${currentImageIndex + 1} / ${currentImages.length}`;
+  }
+  
+  function nextImage() {
+    if (currentImages.length === 0) return;
+    currentImageIndex = (currentImageIndex + 1) % currentImages.length;
+    updateModalImage();
+  }
+  
+  function previousImage() {
+    if (currentImages.length === 0) return;
+    currentImageIndex = currentImageIndex === 0 ? currentImages.length - 1 : currentImageIndex - 1;
+    updateModalImage();
+  }
+  
+  // Keyboard navigation
+  document.addEventListener('keydown', function(e) {
+    if (document.getElementById('gallery-modal').classList.contains('hidden')) return;
+    
+    switch(e.key) {
+      case 'Escape':
+        closeGallery();
+        break;
+      case 'ArrowRight':
+        nextImage();
+        break;
+      case 'ArrowLeft':
+        previousImage();
+        break;
+    }
+  });
+  
+  // Close modal when clicking outside the image
+  document.getElementById('gallery-modal').addEventListener('click', function(e) {
+    if (e.target === this) {
+      closeGallery();
+    }
+  });
+</script> 
