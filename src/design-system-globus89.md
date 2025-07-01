@@ -74,3 +74,5 @@
 
 **In summary:**
 The design is modern, official, and corporate, but with warmth and approachability thanks to rounded corners, soft shadows, and a light color palette. Red is used for all key accents and CTAs, while black is reserved for overlays and the main CTA section. The layout is highly responsive, with clear visual hierarchy and decorative details that reinforce the brand identity. 
+
+#
