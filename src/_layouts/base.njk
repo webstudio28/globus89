@@ -2,7 +2,6 @@
 <html lang="bg">
     <head>
 
-        <!-- DEBUG: eleventy.pathPrefix={{ pathPrefix }} -->
         {#  #}
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,8 +13,8 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-        <link rel="stylesheet" href="{{ pathPrefix }}assets/css/styles.css">
-        <link rel="stylesheet" href="{{ pathPrefix }}assets/css/custom-styles.css">
+        <link rel="stylesheet" href="/assets/css/styles.css">
+        <link rel="stylesheet" href="/assets/css/custom-styles.css">
 
         <script src="https://cdn.tailwindcss.com"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer"/>
@@ -27,8 +26,8 @@
         <meta property="og:url" content="https://example.com/your-page"/>
         <meta property="og:type" content="website"/>
 
-        <script src="{{ pathPrefix }}assets/js/gsap.min.js"></script>
-        <script src="{{ pathPrefix }}assets/js/ScrollTrigger.min.js"></script>
+        <script src="/assets/js/gsap.min.js"></script>
+        <script src="/assets/js/ScrollTrigger.min.js"></script>
     </head>
    
     <body class="text-globus-light-gray font-['Montserrat'] relative">
@@ -37,7 +36,7 @@
 
         <!-- Static Background Image -->
         <div class="fixed inset-0 z-0">
-            <img src="{{ pathPrefix }}assets/images/base-bg.jpg" alt="" class="w-full h-full object-cover opacity-20">
+            <img src="/assets/images/base-bg.jpg" alt="" class="w-full h-full object-cover opacity-20">
         </div>
 
         <!-- Content Wrapper -->
@@ -50,11 +49,11 @@
                     <!-- Desktop Menu -->
                     <div class="hidden lg:flex lg:items-center space-x-8">
                         <a href="/" class="hover:text-globus-red transition-colors font-medium">Начало</a>
-                        <a href="{{ pathPrefix }}uslugi.html" class="hover:text-globus-red transition-colors font-medium">Услуги</a>
-                        <a href="{{ pathPrefix }}za-nas.html" class="hover:text-globus-red transition-colors font-medium">За нас</a>
-                        <a href="{{ pathPrefix }}proekti" class="hover:text-globus-red transition-colors font-medium">Проекти</a>
-                        <a href="{{ pathPrefix }}kontakt.html" class="hover:text-globus-red transition-colors font-medium">Контакти</a>
-                        <a href="tel:+359893872181" class="ml-4 bg-globus-red text-white px-6 py-2 rounded-[12px] font-semibold shadow hover:bg-red-700 transition-colors">Обаждане</a>
+                        <a href="/uslugi.html" class="hover:text-globus-red transition-colors font-medium">Услуги</a>
+                        <a href="/za-nas.html" class="hover:text-globus-red transition-colors font-medium">За нас</a>
+                        <a href="/proekti" class="hover:text-globus-red transition-colors font-medium">Проекти</a>
+                        <a href="/kontakt.html" class="hover:text-globus-red transition-colors font-medium">Контакти</a>
+                        <a href="tel:+359893872181" class="ml-4 bg-globus-red text-white px-6 py-2 rounded-[12px] font-semibold shadow hover:bg-red-700 transition-colors">Обади ни се</a>
 
                         <!-- Social Media Icons -->
                         <div class="flex items-center gap-2 ml-4">
@@ -107,12 +106,12 @@
             <!-- Mobile Menu (moved outside header) -->
             <div id="mobile-menu" class="fixed top-35 left-0 w-full lg:hidden bg-black text-globus-light-gray px-4 pb-6 shadow-lg transform -translate-y-full transition-transform duration-500 ease-out z-40">
                 <div class="container-custom text-center">
-                    <a href="{{ pathPrefix }}" class="block py-2 hover:text-globus-red transition-colors font-medium">Начало</a>
-                    <a href="{{ pathPrefix }}uslugi.html" class="block py-2 hover:text-globus-red transition-colors font-medium">Услуги</a>
-                    <a href="{{ pathPrefix }}za-nas.html" class="block py-2 hover:text-globus-red transition-colors font-medium">За нас</a>
-                    <a href="{{ pathPrefix }}proekti" class="block py-2 hover:text-globus-red transition-colors font-medium">Проекти</a>
-                    <a href="{{ pathPrefix }}kontakt.html" class="block py-2 hover:text-globus-red transition-colors font-medium">Контакти</a>
-                    <a href="{{ pathPrefix }}zayavi-oferte" class="block mt-4 bg-globus-red text-white px-6 py-2 rounded-[12px] font-semibold shadow hover:bg-red-700 transition-colors w-full text-center">Обади ни се</a>
+                    <a href="/" class="block py-2 hover:text-globus-red transition-colors font-medium">Начало</a>
+                    <a href="/uslugi.html" class="block py-2 hover:text-globus-red transition-colors font-medium">Услуги</a>
+                    <a href="/za-nas.html" class="block py-2 hover:text-globus-red transition-colors font-medium">За нас</a>
+                    <a href="/proekti" class="block py-2 hover:text-globus-red transition-colors font-medium">Проекти</a>
+                    <a href="/kontakt.html" class="block py-2 hover:text-globus-red transition-colors font-medium">Контакти</a>
+                    <a href="tel:+359893872181" class="ml-4 bg-globus-red text-white px-6 py-2 rounded-[12px] font-semibold shadow hover:bg-red-700 transition-colors">Обади ни се</a>
 
                     <!-- Mobile Social Media Icons -->
                     <div class="flex items-center justify-center gap-4 mt-4">
@@ -241,19 +240,19 @@
                             <h3 class="text-xl font-bold mb-4 text-globus-light-gray">Бързи връзки</h3>
                             <ul class="space-y-2">
                                 <li>
-                                    <a href="{{ pathPrefix }}" class="text-globus-light-gray hover:text-globus-red transition-colors">Начало</a>
+                                    <a href="/" class="text-globus-light-gray hover:text-globus-red transition-colors">Начало</a>
                                 </li>
                                 <li>
-                                    <a href="{{ pathPrefix }}uslugi.html" class="text-globus-light-gray hover:text-globus-red transition-colors">Услуги</a>
+                                    <a href="/uslugi.html" class="text-globus-light-gray hover:text-globus-red transition-colors">Услуги</a>
                                 </li>
                                 <li>
-                                    <a href="{{ pathPrefix }}za-nas.html" class="text-globus-light-gray hover:text-globus-red transition-colors">За нас</a>
+                                    <a href="/za-nas.html" class="text-globus-light-gray hover:text-globus-red transition-colors">За нас</a>
                                 </li>
                                 <li>
-                                    <a href="{{ pathPrefix }}proekti" class="text-globus-light-gray hover:text-globus-red transition-colors">Проекти</a>
+                                    <a href="/proekti" class="text-globus-light-gray hover:text-globus-red transition-colors">Проекти</a>
                                 </li>
                                 <li>
-                                    <a href="{{ pathPrefix }}kontakt.html" class="text-globus-light-gray hover:text-globus-red transition-colors">Контакти</a>
+                                    <a href="/kontakt.html" class="text-globus-light-gray hover:text-globus-red transition-colors">Контакти</a>
                                 </li>
                             </ul>
                         </div>
@@ -297,7 +296,7 @@
                         </div>
                         <div class="flex items-center">
                             <a href="https://www.webstudio28.com" target="_blank" rel="noopener noreferrer" class="hover:opacity-100 transition-opacity duration-300">
-                                <img src="{{ pathPrefix }}assets/images/made-by.png" alt="Направено от WebStudio28" class="h-12 opacity-70 hover:opacity-100 transition-opacity duration-300">
+                                <img src="/assets/images/made-by.png" alt="Направено от WebStudio28" class="h-12 opacity-70 hover:opacity-100 transition-opacity duration-300">
                             </a>
                         </div>
                     </div>
