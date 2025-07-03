@@ -42,16 +42,16 @@
         <div class="relative z-10">
             <header class="w-full bg-black shadow-md z-50 sticky top-0">
                 <nav class="container-custom mx-auto flex justify-between items-center h-20 px-4 md:px-8">
-                    <a href="{{ '/' | url }}" class="flex items-center gap-2 text-2xl font-bold text-globus-light-gray">
+                    <a href="{{ pathPrefix }}" class="flex items-center gap-2 text-2xl font-bold text-globus-light-gray">
                         <span class=" md:inline">Глобус 89</span>
                     </a>
                     <!-- Desktop Menu -->
                     <div class="hidden lg:flex lg:items-center space-x-8">
-                        <a href="{{ '/' | url }}" class="hover:text-globus-red transition-colors font-medium">Начало</a>
-                        <a href="{{ '/uslugi.html' | url }}" class="hover:text-globus-red transition-colors font-medium">Услуги</a>
-                        <a href="{{ '/za-nas.html' | url }}" class="hover:text-globus-red transition-colors font-medium">За нас</a>
-                        <a href="{{ '/proekti' | url }}" class="hover:text-globus-red transition-colors font-medium">Проекти</a>
-                        <a href="{{ '/kontakt.html' | url }}" class="hover:text-globus-red transition-colors font-medium">Контакти</a>
+                        <a href="{{ pathPrefix }}" class="hover:text-globus-red transition-colors font-medium">Начало</a>
+                        <a href="{{ pathPrefix }}uslugi.html" class="hover:text-globus-red transition-colors font-medium">Услуги</a>
+                        <a href="{{ pathPrefix }}za-nas.html" class="hover:text-globus-red transition-colors font-medium">За нас</a>
+                        <a href="{{ pathPrefix }}proekti" class="hover:text-globus-red transition-colors font-medium">Проекти</a>
+                        <a href="{{ pathPrefix }}kontakt.html" class="hover:text-globus-red transition-colors font-medium">Контакти</a>
                         <a href="tel:+359893872181" class="ml-4 bg-globus-red text-white px-6 py-2 rounded-[12px] font-semibold shadow hover:bg-red-700 transition-colors">Обаждане</a>
 
                         <!-- Social Media Icons -->
@@ -105,12 +105,12 @@
             <!-- Mobile Menu (moved outside header) -->
             <div id="mobile-menu" class="fixed top-35 left-0 w-full lg:hidden bg-black text-globus-light-gray px-4 pb-6 shadow-lg transform -translate-y-full transition-transform duration-500 ease-out z-40">
                 <div class="container-custom text-center">
-                    <a href="{{ '/' | url }}" class="block py-2 hover:text-globus-red transition-colors font-medium">Начало</a>
-                    <a href="{{ '/uslugi.html' | url }}" class="block py-2 hover:text-globus-red transition-colors font-medium">Услуги</a>
-                    <a href="{{ '/za-nas.html' | url }}" class="block py-2 hover:text-globus-red transition-colors font-medium">За нас</a>
-                    <a href="{{ '/proekti' | url }}" class="block py-2 hover:text-globus-red transition-colors font-medium">Проекти</a>
-                    <a href="{{ '/kontakt' | url }}" class="block py-2 hover:text-globus-red transition-colors font-medium">Контакти</a>
-                    <a href="{{ '/zayavi-oferte' | url }}" class="block mt-4 bg-globus-red text-white px-6 py-2 rounded-[12px] font-semibold shadow hover:bg-red-700 transition-colors w-full text-center">Обади ни се</a>
+                    <a href="{{ pathPrefix }}" class="block py-2 hover:text-globus-red transition-colors font-medium">Начало</a>
+                    <a href="{{ pathPrefix }}uslugi.html" class="block py-2 hover:text-globus-red transition-colors font-medium">Услуги</a>
+                    <a href="{{ pathPrefix }}za-nas.html" class="block py-2 hover:text-globus-red transition-colors font-medium">За нас</a>
+                    <a href="{{ pathPrefix }}proekti" class="block py-2 hover:text-globus-red transition-colors font-medium">Проекти</a>
+                    <a href="{{ pathPrefix }}kontakt.html" class="block py-2 hover:text-globus-red transition-colors font-medium">Контакти</a>
+                    <a href="{{ pathPrefix }}zayavi-oferte" class="block mt-4 bg-globus-red text-white px-6 py-2 rounded-[12px] font-semibold shadow hover:bg-red-700 transition-colors w-full text-center">Обади ни се</a>
 
                     <!-- Mobile Social Media Icons -->
                     <div class="flex items-center justify-center gap-4 mt-4">
@@ -239,19 +239,19 @@
                             <h3 class="text-xl font-bold mb-4 text-globus-light-gray">Бързи връзки</h3>
                             <ul class="space-y-2">
                                 <li>
-                                    <a href="{{ '/' | url }}" class="text-globus-light-gray hover:text-globus-red transition-colors">Начало</a>
+                                    <a href="{{ pathPrefix }}" class="text-globus-light-gray hover:text-globus-red transition-colors">Начало</a>
                                 </li>
                                 <li>
-                                    <a href="{{ '/uslugi.html' | url }}" class="text-globus-light-gray hover:text-globus-red transition-colors">Услуги</a>
+                                    <a href="{{ pathPrefix }}uslugi.html" class="text-globus-light-gray hover:text-globus-red transition-colors">Услуги</a>
                                 </li>
                                 <li>
-                                    <a href="{{ '/za-nas.html' | url }}" class="text-globus-light-gray hover:text-globus-red transition-colors">За нас</a>
+                                    <a href="{{ pathPrefix }}za-nas.html" class="text-globus-light-gray hover:text-globus-red transition-colors">За нас</a>
                                 </li>
                                 <li>
-                                    <a href="{{ '/proekti' | url }}" class="text-globus-light-gray hover:text-globus-red transition-colors">Проекти</a>
+                                    <a href="{{ pathPrefix }}proekti" class="text-globus-light-gray hover:text-globus-red transition-colors">Проекти</a>
                                 </li>
                                 <li>
-                                    <a href="{{ '/kontakt.html' | url }}" class="text-globus-light-gray hover:text-globus-red transition-colors">Контакти</a>
+                                    <a href="{{ pathPrefix }}kontakt.html" class="text-globus-light-gray hover:text-globus-red transition-colors">Контакти</a>
                                 </li>
                             </ul>
                         </div>
