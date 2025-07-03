@@ -10,7 +10,7 @@ title: Начало
 <!-- Hero Section -->
 <section class="relative w-full h-[85vh] flex items-start overflow-hidden">
   <!-- Fullscreen background image -->
-  <img src="{{ 'assets/images/flooring-hero.jpg' | url }}" alt="Глобус 89 - Машинно полагане на замазки" class="object- absolute inset-0 w-full h-full object-cover  z-0"/>
+  <img src="{{ pathPrefix }}assets/images/flooring-hero.jpg" alt="Глобус 89 - Машинно полагане на замазки" class="object- absolute inset-0 w-full h-full object-cover  z-0"/>
   <!-- Dark overlay -->
   <div class="absolute inset-0 bg-globus-black/50 z-10"></div>
   <!-- Content -->
@@ -195,11 +195,11 @@ title: Начало
         <div class="min-w-[270px] md:min-w-[320px] bg-white rounded-[18px] shadow-xl border border-gray-300 flex flex-col p-4 mx-2 snap-center relative overflow-hidden">
 
           <!-- Background Image -->
-          <img src="{{ 'assets/images/service-card-bg.jpg' | url }}" alt="" 
+          <img src="{{ pathPrefix }}assets/images/service-card-bg.jpg" alt="" 
          class="absolute inset-0 w-full h-full object-cover z-0 opacity-5"/>
 
           <!-- Foreground Image -->
-          <img src="{{ service.image | url }}" alt="{{ service.seoTitle }}"
+          <img src="{{ pathPrefix }}{{ service.image }}" alt="{{ service.seoTitle }}"
          class="service-image w-[98%] mx-auto mt-1 h-60 object-cover rounded-md mb-6 z-10 relative transition-transform duration-300 hover:scale-105 hover:rotate-1 shadow-xl"/>
 
           <div class="z-10 relative flex flex-col flex-grow items-center text-center">
@@ -215,7 +215,7 @@ title: Начало
 
     </div>
     <div class="text-center mt-8">
-      <a href="{{ '/uslugi.html' | url }}" class="btn-primary">Всички услуги</a>
+      <a href="{{ pathPrefix }}uslugi.html" class="btn-primary">Всички услуги</a>
     </div>
   </div>
 </section>
@@ -244,7 +244,7 @@ title: Начало
             <div class="w-full flex-shrink-0 relative">
               <div class="relative h-[500px] md:h-[600px] overflow-hidden bg-gray-100">
                 <img
-                                    src="{{ project.images[0] | url }}"
+                                    src="{{ pathPrefix }}{{ project.images[0] }}"
                                     alt="{{ project.description }} - {{ project.service }}"
                                     class="w-full h-full object-cover object-bottom"
 />
@@ -266,7 +266,7 @@ title: Начало
       </div>
 
       <div class="text-center mt-12">
-        <a href="{{ '/proekti' | url }}" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-colors duration-300">
+        <a href="{{ pathPrefix }}proekti" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-colors duration-300">
                 Вижте всички проекти
             </a>
       </div>
@@ -441,7 +441,7 @@ title: Начало
   <div class="container-custom relative z-10 flex flex-col md:flex-row">
 
     <div class="md:w-1/2 flex justify-center items-center p-4 order-first md:order-last">
-      <img src="{{ 'assets/images/cta-home.jpg' | url }}" alt="Техника в действие" class="w-full h-auto object-cover rounded-[15px]"/>
+      <img src="{{ pathPrefix }}assets/images/cta-home.jpg" alt="Техника в действие" class="w-full h-auto object-cover rounded-[15px]"/>
     </div>
 
     <div class="md:w-1/2 p-4 order-last md:order-first">
@@ -449,7 +449,7 @@ title: Начало
       <p class="text-lg md:text-xl mb-6">Доверете се на екипа на Глобус 89 – гарантирано качество и професионализъм във всякакъв тип сгради и помещения.</p>
       <p class="mb-8 text-globus-light-gray">Работим бързо, чисто и коректно – без скрити такси. Свържете се с нас за безплатна консултация и оферта, съобразена с вашите нужди.</p>
       <div class="flex flex-col md:flex-row gap-4 mb-6">
-        <a href="{{ '/kontakt' | url }}" class="btn-primary text-lg"> Контакти</a>
+        <a href="{{ pathPrefix }}kontakt" class="btn-primary text-lg"> Контакти</a>
         <a href="tel:+359893872181" class="btn-secondary text-lg text-white">📞 Обади ни се сега</a>
       </div>
       <div class="flex flex-wrap gap-4 text-globus-light-gray text-sm">
@@ -468,5 +468,5 @@ title: Начало
 
 <!-- Footer is handled in base.njk -->
 
-<script src="{{ '/assets/js/home-gallery.js' | url }}" defer></script>
-<script src="{{ '/assets/js/home-animations.js' | url }}" defer></script>
+<script src="{{ pathPrefix }}assets/js/home-gallery.js" defer></script>
+<script src="{{ pathPrefix }}assets/js/home-animations.js" defer></script>
