@@ -1,7 +1,7 @@
 {
-  "name": "speedwash",
+  "name": "Globus89",
   "version": "1.0.0",
-  "description": "Луксозно автомивно в Пловдив",
+  "description": "Машинно полагане на подови замазки",
   "scripts": {
     "start": "eleventy --serve",
     "build": "eleventy",
