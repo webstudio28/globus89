@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{# <!DOCTYPE html>
 <html lang="bg">
     <head>
 
@@ -7,6 +7,9 @@
         <title>
             {% if title %}{{ title }} | {% endif %}Глобус 89 - Машинно полагане на подови замазки
         </title>
+
+        <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon">
+
         <meta name="description" content="Глобус 89 - Машинно полагане на подови замазки в Пловдив и цяла България. Качество, коректност и професионализъм.">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,7 +23,7 @@
         <!-- Open Graph meta tags -->
         <meta property="og:title" content="Глобус 89 - Машинно полагане на подови замазки"/>
         <meta property="og:description" content="Глобус 89 - Машинно полагане на подови замазки в Пловдив и цяла България. Качество, коректност и професионализъм."/>
-        <meta property="og:image" content="https://andongoshev.github.io/precision-detailing/assets/images/socials-image.png"/>
+        <meta property="og:image" content="https://webstudio28.github.io/globus89/assets/images/socials-image.jpg"/>
         <meta property="og:url" content="https://example.com/your-page"/>
         <meta property="og:type" content="website"/>
 
@@ -42,7 +45,7 @@
             <header class="w-full bg-black shadow-md z-50 sticky top-0">
                 <nav class="container-custom mx-auto flex justify-between items-center h-20 px-4 md:px-8">
                     <a href="/" class="flex items-center gap-2 text-2xl font-bold text-globus-light-gray">
-                        <span class=" md:inline">Глобус 89</span>
+                        <img src="/assets/images/logo.png" alt="Глобус 89 - Лого" class="h-10 md:h-12 max-w-[160px] w-auto object-contain" />
                     </a>
                     <!-- Desktop Menu -->
                     <div class="hidden lg:flex lg:items-center space-x-8">
@@ -109,7 +112,7 @@
                     <a href="/za-nas.html" class="block py-2 hover:text-globus-red transition-colors font-medium">За нас</a>
                     <a href="/proekti" class="block py-2 hover:text-globus-red transition-colors font-medium">Проекти</a>
                     <a href="/kontakt.html" class="block py-2 hover:text-globus-red transition-colors font-medium">Контакти</a>
-                    <a href="tel:+359893872181" class="ml-4 bg-globus-red text-white px-6 py-2 rounded-[12px] font-semibold shadow hover:bg-red-700 transition-colors">Обади ни се</a>
+                    <a href="tel:+359893872181" class="ml-4 bg-globus-red text-white px-6 py-2 rounded-[12px] font-semibold shadow hover:bg-red-700 transition-colors">Обади се</a>
 
                     <!-- Mobile Social Media Icons -->
                     <div class="flex items-center justify-center gap-4 mt-4">
@@ -303,12 +306,12 @@
         </div>
     </body>
 </html>
-
+ #}
 
 
 {# for development #}
 
-{# 
+
 <!DOCTYPE html>
 <html lang="bg">
     <head>
@@ -319,6 +322,9 @@
         <title>
             {% if title %}{{ title }} | {% endif %}Глобус 89 - Машинно полагане на подови замазки
         </title>
+
+        <link rel="icon" href="{{ global.pathPrefix }}assets/images/favicon.ico" type="image/x-icon">
+
         <meta name="description" content="Глобус 89 - Машинно полагане на подови замазки в Пловдив и цяла България. Качество, коректност и професионализъм.">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -333,7 +339,7 @@
         <!-- Open Graph meta tags -->
         <meta property="og:title" content="Глобус 89 - Машинно полагане на подови замазки"/>
         <meta property="og:description" content="Глобус 89 - Машинно полагане на подови замазки в Пловдив и цяла България. Качество, коректност и професионализъм."/>
-        <meta property="og:image" content="https://andongoshev.github.io/precision-detailing/assets/images/socials-image.png"/>
+        <meta property="og:image" content="https://webstudio28.github.io/globus89/assets/images/socials-image.png"/>
         <meta property="og:url" content="https://example.com/your-page"/>
         <meta property="og:type" content="website"/>
 
@@ -355,7 +361,7 @@
             <header class="w-full bg-black shadow-md z-50 sticky top-0">
                 <nav class="container-custom mx-auto flex justify-between items-center h-20 px-4 md:px-8">
                     <a href="/" class="flex items-center gap-2 text-2xl font-bold text-globus-light-gray">
-                        <span class=" md:inline">Глобус 89</span>
+                        <img src="{{ pathPrefix }}assets/images/logo.png" alt="Глобус 89 - Лого" class="h-10 md:h-12 max-w-[160px] w-auto object-contain" />
                     </a>
                     <!-- Desktop Menu -->
                     <div class="hidden lg:flex lg:items-center space-x-8">
@@ -599,4 +605,4 @@
             </footer>
         </div>
     </body>
-</html> #}
+</html>

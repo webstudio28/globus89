@@ -18,7 +18,7 @@
     }
     
     .container-custom {
-        @apply max-w-[95%] mx-auto px-4 md:px-6;
+        @apply max-w-[95%] mx-auto px-4 md:px-6 pt-8;
     }
     
     .btn-primary {
