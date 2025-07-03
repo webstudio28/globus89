@@ -4,6 +4,8 @@ const { DateTime } = require("luxon");
 module.exports = function(eleventyConfig) {
   // Copy static assets
   eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
+  eleventyConfig.addPassthroughCopy("robots.txt");
+  eleventyConfig.addPassthroughCopy("sitemap.xml");
   
   // Add global data for environment variables
   eleventyConfig.addGlobalData("env", {
